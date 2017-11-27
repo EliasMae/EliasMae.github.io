@@ -381,7 +381,7 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: eliasmae
   count: true
   # hide comments (visitors need to click to load the comments)
