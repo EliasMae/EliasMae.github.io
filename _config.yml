@@ -1,7 +1,7 @@
 # Mandatory settings
 
 name: Elias Mae
-paginate: 25
+paginate: 10
 url: # add your site url (format: https://example.com/)
 blog_theme: light # Or use dark
 
