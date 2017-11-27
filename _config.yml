@@ -216,6 +216,7 @@ social:
   #LinkLabel: Link
 
   GitHub: https://github.com/EliasMae
+  Google+: https://plus.google.com
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -228,6 +229,7 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
+  Google+: google-plus
 
 
 # Sidebar Avatar
