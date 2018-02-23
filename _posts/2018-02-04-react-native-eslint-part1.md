@@ -40,7 +40,7 @@ description: 如何在webstorm和vscode配置eslint代码检测
 
   然后会看到Eslint选项，在右边的配置面板，我们做如下配置
 
-  ![](./webstorm-1.png)
+  ![](../assets/images/webstorm-1.png)
 
 
   这里的 ESlint package 是指你在全局安装的eslint路径，Configuration file 则需要指定你刚刚在项目目录生成的eslintrc.*文件。
@@ -57,7 +57,7 @@ npm install -g prettier
 
 在右侧页面中点击加号，新增一个tools ，具体配置如下图
 
-![](./webstorm-2.png)
+![](../assets/images/webstorm-2.png)
 
 这里的prettier.js路径就是你在全局安装的prettier的路径，现在prettier的配置也已经完成了，需要注意的是prettier的缩进方式默认为两个空格，可以在项目目录下新建prettierrc.json文件，在文件中定义你需要的一系列格式。
 
