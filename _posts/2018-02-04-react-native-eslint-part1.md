@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "WebStorm以及Vscode配置eslint代码检测"
-date:   "`r format(Sys.time(), '%d %B, %Y')`"
+date:   "`r format(Sys.time(), '%Y-%m-%d')`"
 tag: Web
 description: 如何在webstorm和vscode配置eslint代码检测
 ---
