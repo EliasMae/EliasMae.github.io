@@ -1,16 +1,10 @@
-\---
-
+---
 layout: post
-
 title:  "WebStorm以及Vscode配置eslint代码检测"
-
 date:   "`r format(Sys.time(), '%d %B, %Y')`"
-
-tag: Python
-
-description: 以汉诺塔为例简单介绍一下python中的递归算法
-
-\---
+tag: Web
+description: 如何在webstorm和vscode配置eslint代码检测
+---
 
 
 
