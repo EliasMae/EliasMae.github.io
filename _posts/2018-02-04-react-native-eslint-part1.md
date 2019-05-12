@@ -12,8 +12,6 @@ description:
 
 从 17 年十月份，公司领导提出新增 react-native 技术栈，目前我们原生团队负责调研这一技术以及新产品 4.0 的开发。调研期间，团队内部自己测试用的 demo 没有特殊要求，但是从上个月开始开发的新产品则需要按照公司的代码规范以及工作流维护在 gitlab 上。
 
-
-
 # 正文
 
 前端团队使用 eslint 进行代码检测及审核，最近又新增了 prettier 代码格式化工具，这为我们的开发工作提供了不少便利，接下来我大概介绍一下在 webstorm 和 vscode 这两种编辑器上面的配置
@@ -44,7 +42,7 @@ eslint --init
 
 到这一步为止，我们已经配置好了 webstorm 的 eslint 检测，具体的 eslintrc 文件配置取决于个人的代码标准，语法相关的可以参考 [eslint中文网](http://eslint.cn/)，这里不再赘述。
 
-> **prettier **
+> **prettier**
 
 首先全局安装
 ```bash
@@ -55,7 +53,7 @@ npm install -g prettier
 ![][Webstorm-2]
 这里的 prettier.js 路径就是你在全局安装的 prettier 的路径，现在 prettier 的配置也已经完成了，需要注意的是 prettier 的缩进方式默认为两个空格，可以在项目目录下新建 prettierrc.json 文件，在文件中定义你需要的一系列格式。
 
-> **使用 prettier 自动格式化代码 **
+> **使用 prettier 自动格式化代码**
 
 你可以在 webstorm 工具栏中选择 Tools —> External Tools —> Prettier 进行格式化操作，但是这样操作多有不便，所以我推荐下面这种方式 :
 
