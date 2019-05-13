@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "WebStorm 配置 eslint 及 prettier"
-date:   "2018-02-23"
-tag: Web
-description:
+layout:     post
+title:      "WebStorm 配置 eslint 及 prettier"
+subtitle:   ""
+date:       2018-02-23 
+author:     "Mae"
+tags:
+- 工具
+- react-native
 ---
 
 
