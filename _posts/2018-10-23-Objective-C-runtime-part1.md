@@ -10,8 +10,6 @@ tags:
 
 
 
-# Objective-C 中的 runtime 机制及其应用场景(一)
-
 这篇博文旨在记录自己的学习过程，参考资料：wiki、《Effective Objective-C 2.0》等。
 
 #### *什么是 runtime*
@@ -59,7 +57,7 @@ id value = objc_msgSend(object,
 <return_type> Class_selector(id self, SEL _cmd, ...)
 ```
 
-每一个 class 里面都有一张 **表格(dispatch table)**[^1]，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key **，` objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。
+每一个 class 里面都有一张 **表格(dispatch table)**[^1]，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key**，` objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。
 
 [^1]:  *(来自 wiki 的介绍：a **dispatch table** is a table of [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) to functions or [methods](https://en.wikipedia.org/wiki/Method_(computer_science)).)* 
 
