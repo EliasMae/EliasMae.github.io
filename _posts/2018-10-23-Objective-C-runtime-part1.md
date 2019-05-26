@@ -33,7 +33,7 @@ runtime 的字面意思就是 运行时，OC 是 C 语言的超集，在 C 语�
 id value = [obj messageName:paramer];
 ```
 
-在底层，所有的方法都是普通的 C 语言函数，编译器在看到此消息后，会将其转换成一条标准的 C 语言函数调用，所调用的函数是消息传递机制中的核心函数 ` objc_msgSend` ，此函数原型为：
+在底层，所有的方法都是普通的 C 语言函数，编译器在看到此消息后，会将其转换成一条标准的 C 语言函数调用，所调用的函数是消息传递机制中的核心函数 `objc_msgSend` ，此函数原型为：
 
 ```c
 void objc_msgSend(id self, SEL cmd, ...)
@@ -51,13 +51,13 @@ id value = objc_msgSend(object,
 
 ##### *跳转至该方法实现*
 
-下面主要先说一下，**跳转至该方法实现** 这步操作的大致原理，之所以能这样做，是因为，每个 OC 对象的方法在底层都可以视作一个 C 语言函数，其原型与 ` objc_msgSend` 类似，大概 如下：
+下面主要先说一下，**跳转至该方法实现** 这步操作的大致原理，之所以能这样做，是因为，每个 OC 对象的方法在底层都可以视作一个 C 语言函数，其原型与 `objc_msgSend` 类似，大概 如下：
 
 ```c
 <return_type> Class_selector(id self, SEL _cmd, ...)
 ```
 
-每一个 class 里面都有一张 **表格(dispatch table)**[^1]，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key**，` objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。
+每一个 class 里面都有一张 **表格(dispatch table)**[^1]，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key**，`objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。
 
 [^1]:  *(来自 wiki 的介绍：a **dispatch table** is a table of [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) to functions or [methods](https://en.wikipedia.org/wiki/Method_(computer_science)).)* 
 
