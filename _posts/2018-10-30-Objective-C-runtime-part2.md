@@ -87,12 +87,12 @@ selectorString is setString:
 + (BOOL)resolveInstanceMethod:(SEL)sel {
     NSString *selectorString = NSStringFromSelector(sel);
     NSLog(@"selectorString is %@", selectorString);
- /**
+   /**
      * 如果 selector 为 set 方法
      * 利用 class_addMethod 方法为这个类添加 method_name 的方法
      * "v@:@" 表示 void 方法 且有一个参数传入
      */
-  	if ([selectorString hasPrefix:@"set"]) {
+    if ([selectorString hasPrefix:@"set"]) {
         class_addMethod(self, sel, (IMP)method_name , "v@:@");
     } else {
         ...
