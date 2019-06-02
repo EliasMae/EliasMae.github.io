@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Objective-C 中的 runtime 机制及其应用场景(二)"
-subtitle:   "*消息转发机制*"
+subtitle:   "消息转发机制"
 date:       2018-10-30 
 author:     "Jacob"
 tags:
