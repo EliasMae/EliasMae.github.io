@@ -36,9 +36,15 @@ tags:
 
 在对象接收到无法解读的消息时，首先会调用其所属类的类方法：
 
-`+ (BOOL)resolveInstanceMethod:(SEL)sel`
+```objective-c
++ (BOOL)resolveInstanceMethod:(SEL)sel
+```
 
-方法参数 `sel` 就是当前未能识别的 selector，返回值是 BOOL 类型，表示这个类能否新增一个 **实例方法** 来处理这个 selector，如果不是 **实例方法** ，而是 **类方法** 的话，这里需要调用的方法则应该是：`+ (BOOL)resolveClassMethod:(SEL)sel`  。
+方法参数 `sel` 就是当前未能识别的 selector，返回值是 BOOL 类型，表示这个类能否新增一个 **实例方法** 来处理这个 selector，如果不是 **实例方法** ，而是 **类方法** 的话，这里需要调用的方法则应该是：
+
+```objective-c
++ (BOOL)resolveClassMethod:(SEL)sel  
+```
 
 使用这种方法的前提是相关方法的实现代码已经写好，只等着在运行时，动态插入到类里面即可。在日常的开发工作中，我们会见到 `@dynamic`  关键字，它的语义与 **动态方法解析** 十分吻合，`@dynamic` 关键字会告诉编译器：不要自动创建实现属性所用的实例变量，也不要为其创建存取方法。然后，在编译器编译这些属性代码时，就算发现没有存取方法也不会报错，因为它知道代码在运行时还会有动态方法解析步骤。例：
 
