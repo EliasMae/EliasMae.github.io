@@ -1,16 +1,16 @@
 ---
 layout:     post
 title:      "Objective-C 中的 runtime 机制及其应用场景(一)"
-subtitle:   ""
+subtitle:   "OC 中的消息传递"
 date:       2018-10-23 
-author:     "Mae"
+author:     "Jacob"
 tags:
 - iOS
 ---
 
 
 
-这篇博文旨在记录自己的学习过程，参考资料：wiki、《Effective Objective-C 2.0》等。
+> *此博文旨在记录自己的学习过程，参考资料：wiki、《Effective Objective-C 2.0》等。*
 
 #### *什么是 runtime*
 
@@ -24,11 +24,11 @@ runtime 的字面意思就是 运行时，OC 是 C 语言的超集，在 C 语�
 
 ```objective-c
 /**
- 给名为 obj 的对象发送消息
- obj 为接收者
- messageName 为 selector
- 接收参数 paramer
- 返回结果 value
+ * 给名为 obj 的对象发送消息
+ * obj 为接收者
+ * messageName 为 selector
+ * 接收参数 paramer
+ * 返回结果 value
  */
 id value = [obj messageName:paramer];
 ```
@@ -47,7 +47,9 @@ id value = objc_msgSend(object,
                         paramer);
 ```
 
-`objc_msgSend ` 函数会依据接收者和 selector 的类型来调用适当的方法， 为了完成此操作，该方法会在接收者的类里查找其方法列表，如果找到，就跳转至该方法实现代码，如果找不到，会沿着继承体系继续向上查找，若最终还是找不到，那么就会执行 **消息转发** 操作。
+`objc_msgSend ` 函数会依据接收者和 selector 的类型来调用适当的方法， 为了完成此操作，该方法会在接收者的类里查找其 **方法列表 (Method List)**，如果找到，就跳转至该方法实现代码，如果找不到，会沿着继承体系继续向上查找，若最终还是找不到，那么就会执行 **消息转发** 操作。
+
+要注意，发送给某对象的所有消息，都是由 **动态消息派发系统** 来处理，该系统会查找对应的方法并执行代码。
 
 ##### *跳转至该方法实现*
 
@@ -57,10 +59,13 @@ id value = objc_msgSend(object,
 <return_type> Class_selector(id self, SEL _cmd, ...)
 ```
 
-每一个 class 里面都有一张 **表格(dispatch table)**[^1]，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key**，`objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。
+每一个 class 里面都有一张 **表格(dispatch table)**[^1]，一个包含了这个 class 里面所有方法的指针表，其中的指针都会指向上面这种函数，而选择器 selector 则是查表所用的 **key**，`objc_msgSend` 等函数正是通过这张表格来寻找对应方法并跳转至其实现的。此外，这些函数的原型和 `objc_msgSend` 相似，这并不是巧合，而是为了利用 **尾调用优化**[^2]，使 **跳转至方法实现** 这一操作变得更容易一些。
+
+下一篇会继续记录 runtime 中的消息转发。
+
+
 
 [^1]:  *(来自 wiki 的介绍：a **dispatch table** is a table of [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) to functions or [methods](https://en.wikipedia.org/wiki/Method_(computer_science)).)* 
 
+[^2 ]:  [*wiki 中对尾调用的定义*]([https://zh.wikipedia.org/wiki/%E5%B0%BE%E8%B0%83%E7%94%A8](https://zh.wikipedia.org/wiki/尾调用))
 
-
-下一篇会继续记录 runtime 中的消息转发。
