@@ -1,6 +1,6 @@
 # Site settings
-title: Mae Blog
-SEOTitle: Mae Blog
+title: Jacob | Blog
+SEOTitle: Jacob Blog
 header-img: img/home-bg.jpeg
 email: mhcjoker@gmail.com
 description: "我的博客"
@@ -82,19 +82,20 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "Mae Blog",
+        title: "Jacob Blog",
         href: "http://eliasmae.github.io"
-    },{
-        title: "Foo",
-        href: "#"
-    },{
-        title: "Bar",
-        href: "#"
-    },{
-        title: "Example Friends",
-        href: "#"
-    },{
-        title: "It helps SEO",
-        href: "#"
-    }
+    },
+    # {
+    #     title: "Foo",
+    #     href: "#"
+    # },{
+    #     title: "Bar",
+    #     href: "#"
+    # },{
+    #     title: "Example Friends",
+    #     href: "#"
+    # },{
+    #     title: "It helps SEO",
+    #     href: "#"
+    # }
 ]
