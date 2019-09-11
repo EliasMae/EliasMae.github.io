@@ -11,7 +11,7 @@ author:     "Jacob"
 
 tags:
 
-- iOS
+- react-native
 ---
 
 
