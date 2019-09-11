@@ -24,13 +24,13 @@ tags:
 
 > fastlane
 
-说到自动化打包，iOS 开发工程师基本第一时间会想到 fastlane ，这是我们经常用到的工具，它不仅可以简化打包流程，并且还可以通过配置把应用上传到一些包管理平台，例如 pgyer、fir.im 等，或者直接上传至 itunesConnect ，具体的配置可以参考 [fastlane]() 的官方文档。
+说到自动化打包，iOS 开发工程师基本第一时间会想到 fastlane ，这是我们经常用到的工具，它不仅可以简化打包流程，并且还可以通过配置把应用上传到一些包管理平台，例如 pgyer、fir.im 等，或者直接上传至 itunesConnect ，具体的配置可以参考 [fastlane](https://docs.fastlane.tools/) 的官方文档。
 
 
 
 > RN 中的多环境配置
 
-在 RN 项目中，我们用到 [react-native-config]() 来处理多套环境的切换:
+在 RN 项目中，我们用到 [react-native-config](https://github.com/luggit/react-native-config) 来处理多套环境的切换:
 
 - 在项目中引入组件
 
@@ -48,8 +48,8 @@ tags:
 
 ```
 .env.dev          # 开发环境 
-.env.qa						# 测试环境
-.env.uat					# UAT环境
+.env.qa           # 测试环境
+.env.uat          # UAT环境
 .env.production   # 生产环境
 ```
 
@@ -88,13 +88,13 @@ Config.ENV
 
 1. 首先进入 Xcode ，打开项目 :
 
-   ![](../img/in-post/post-rn/xcode-setting.jpg)
+   ![xcode-setting](/img/in-post/post-rn/xcode-setting.jpg)
 
 
 
-2. 在右侧能看到 targets 栏，选中当前默认的，然后右键，能看到 Duplicate 选项，或者直接 command + D ，这样就可以复制一个新的 target ，命名为 `packTestQA` ，同样的道理，依次创建对应其他几个环境的 target ，创建完成以后点击 Product -- scheme -- manage schemes ，会看到默认的 packTest 之外又多了3 个 copy 的 scheme :![](../img/in-post/post-rn/scheme-manage.png)
+2. 在右侧能看到 targets 栏，选中当前默认的，然后右键，能看到 Duplicate 选项，或者直接 command + D ，这样就可以复制一个新的 target ，命名为 `packTestQA` ，同样的道理，依次创建对应其他几个环境的 target ，创建完成以后点击 Product -- scheme -- manage schemes ，会看到默认的 packTest 之外又多了3 个 copy 的 scheme :![scheme-manage](/img/in-post/post-rn/scheme-manage.png)
 
-3. 选中其中一个点击左下角的 edit ，在新的页面里可以看到，当前的 scheme 对应的是我们刚刚创建的 target ，每个 target 都对应着一个 scheme ，接下来要在 scheme 的编辑页面添加对应的配置，找到对应 target 的scheme，点击 edit ，然后点击左边的build栏，添加一个 pre-action :![](/Users/martin/Documents/EliasMae.github.io/img/in-post/post-rn/scheme-edit.png)这是 react-native-config 组件中提供的方式，在项目编译时通过执行这段脚本来设置当前的环境。
+3. 选中其中一个点击左下角的 edit ，在新的页面里可以看到，当前的 scheme 对应的是我们刚刚创建的 target ，每个 target 都对应着一个 scheme ，接下来要在 scheme 的编辑页面添加对应的配置，找到对应 target 的scheme，点击 edit ，然后点击左边的build栏，添加一个 pre-action :![scheme-edit](/img/in-post/post-rn/scheme-edit.png)这是 react-native-config 组件中提供的方式，在项目编译时通过执行这段脚本来设置当前的环境。
 
 
 
