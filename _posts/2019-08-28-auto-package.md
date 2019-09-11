@@ -1,9 +1,9 @@
 ---
 layout:     post
 
-title:      "RN 项目基于 iOS 平台的多环境自动打包"
+title:      "React Native 项目多环境自动打包"
 
-subtitle:   "消息转发机制"
+subtitle:   "基于 iOS 平台"
 
 date:       2019-8-28 
 
