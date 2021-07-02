@@ -12,7 +12,6 @@ author:     "Jacob"
 tags:
 
 - react-native
-
 ---
 
 
